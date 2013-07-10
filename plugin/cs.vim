@@ -28,3 +28,13 @@ au BufNewFile,BufRead *.ascx compiler msbuild | set filetype=html syntax=aspx
 com! -complete=file -nargs=1 MsProjFile :call MsProjFile(<f-args>)
 com! -nargs=1 MsVersion :call MsVersion(<f-args>)
 com! IISExpress :call IISExpress()
+
+" colorscheme for csharp
+au FileType cs colorscheme MountainDew
+
+au FileType cs set omnifunc=syntaxcomplete#Complete
+au FileType cs set foldmethod=marker
+au FileType cs set foldmarker={,}
+au FileType cs set foldtext=substitute(getline(v:foldstart),'{.*','{...}',)
+au FileType cs set nofoldenable
+au FileType cs set foldlevelstart=2
